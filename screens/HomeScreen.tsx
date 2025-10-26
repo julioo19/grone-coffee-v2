@@ -7,7 +7,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 //
 type HomeStackParamList = {
   HomeScreen: undefined;
-  NotificationScreen: undefined;
+  CoffeeDetailScreen: undefined;
 };
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<HomeStackParamList, 'HomeScreen'>;
@@ -18,8 +18,8 @@ const HomeScreen = () => {
     <View>
       <Text>THIS IS THE HOME SCREEN</Text>
       <CustomButton
-        onPress={() => navigation.navigate('NotificationScreen')}
-        title='Go to Notification Screen'
+        onPress={() => navigation.navigate('CoffeeDetailScreen')}
+        title='Go to CoffeeDetail Screen'
       />
     </View>
   )
