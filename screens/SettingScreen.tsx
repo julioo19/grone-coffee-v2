@@ -4,10 +4,12 @@ import CustomButton from '../components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+import SettingNavButton from '../components/SettingNavButton'
 
 type SettingStackParamList = {
     SettingScreen: undefined
     AboutScreen: undefined
+    AuthScreen: undefined
 }
 
 type SettingStackNavigationProp = NativeStackNavigationProp<SettingStackParamList, 'SettingScreen'>;
@@ -21,10 +23,30 @@ const SettingScreen = () => {
         - 
         */
         <SafeAreaProvider>
-            <SafeAreaView>
-                <View style={styles.box}>
-                    
-                </View>
+            <SafeAreaView style={styles.container}>
+                <ScrollView>
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={90} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+                    <SettingNavButton onPress={() => console.log("asa")} title='Auth' unstable_pressDelay={70} />
+
+                </ScrollView>
             </SafeAreaView>
         </SafeAreaProvider>
     )
