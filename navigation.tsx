@@ -8,59 +8,91 @@ import { Entypo } from '@expo/vector-icons';
 import HomeScreen from "./screens/HomeScreen";
 import CartScreen from './screens/CartScreen';
 import FavoriteScreen from './screens/FavoriteScreen';
-import NotificationScreen from './screens/NotificationScreen';
 import CoffeeDetailScreen from './screens/CoffeeDetailScreen';
 import AboutScreen from './screens/AboutScreen ';
 import SettingScreen from './screens/SettingScreen';
+import NotificationScreen from './screens/NotificationScreen';
+import AuthScreen from './screens/AuthScreen';
 
+const RootStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-const HomeStackNavigator = createNativeStackNavigator();
-const AuthStackNavigator = createNativeStackNavigator();
-const SettingNavigator = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const AuthStack = createNativeStackNavigator();
+const SettingStack = createNativeStackNavigator();
 
-function HomeStack() {
+function HomeStackNavigator() {
     return (
-        <HomeStackNavigator.Navigator
+        <HomeStack.Navigator
             initialRouteName='HomeScreen'>
-            <HomeStackNavigator.Screen
+            <HomeStack.Screen
                 name='HomeScreen'
                 component={HomeScreen} />
 
-            <HomeStackNavigator.Screen
+            <HomeStack.Screen
                 name='CoffeeDetailScreen'
                 component={CoffeeDetailScreen}
                 options={{
                     headerBackVisible: false
                 }}
             />
-        </HomeStackNavigator.Navigator>
+        </HomeStack.Navigator>
     )
 }
 
-function SettingStack() {
+function SettingStackNavigator() {
     return (
-        <SettingNavigator.Navigator
+        <SettingStack.Navigator
             initialRouteName= 'SettingScreen'>
-            <SettingNavigator.Screen
+            <SettingStack.Screen
                 name='SettingScreen'
                 component={SettingScreen}
                 options={{
                     //headerShown: false
                 }}
             />
-            <SettingNavigator.Screen
+            <SettingStack.Screen
             name = 'AboutScreen'
             component={AboutScreen}
             options={{
                 headerShown: false
             }}
             />
-        </SettingNavigator.Navigator>
+        </SettingStack.Navigator>
     )
 }
 
+function RootStackNavigator(){
+    return(
+        <RootStack.Navigator>
+            <RootStack.Screen
+            name='MainApp'
+            component={TabNavigator}
+            options={{
+                headerShown: false,
+                presentation: 'card'
+            }}
+            />
+            <RootStack.Screen
+            name='NotificationScreen'
+            component={NotificationScreen}
+            options={{
+                headerShown: false,
+                presentation: 'card'
+            }}
+            />
+            <RootStack.Screen
+            name = 'AuthScreen'
+            component={AuthScreen}
+            options={{
+                headerShown: false,
+                presentation: 'modal'
+            }}
+            />
+        </RootStack.Navigator>
+    )
+}
 
-function MyTabs() {
+function TabNavigator() {
     return (
         <Tab.Navigator
             initialRouteName='Home'
@@ -71,7 +103,7 @@ function MyTabs() {
         >
             <Tab.Screen
                 name="Home"
-                component={HomeStack}
+                component={HomeStackNavigator}
                 options={{
                     tabBarLabel: "Inicio",
                     tabBarIcon: ({ color }) => (
@@ -105,7 +137,7 @@ function MyTabs() {
             />
             <Tab.Screen
                 name="Ajustes"
-                component={SettingStack}
+                component={SettingStackNavigator}
                 options={{
                     tabBarLabel: "Ajustes",
                     tabBarIcon: ({ color }) => (
@@ -121,7 +153,7 @@ function MyTabs() {
 export default function Navigation() {
     return (
         <NavigationContainer>
-            <MyTabs />
+            <RootStackNavigator/>
         </NavigationContainer>
     )
 }
