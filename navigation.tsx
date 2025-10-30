@@ -23,7 +23,12 @@ const SettingStack = createNativeStackNavigator();
 function HomeStackNavigator() {
     return (
         <HomeStack.Navigator
-            initialRouteName='HomeScreen'>
+            initialRouteName='HomeScreen'
+            screenOptions={{
+                animation: 'fade_from_bottom',
+                headerShown: false
+            }}
+        >
             <HomeStack.Screen
                 name='HomeScreen'
                 component={HomeScreen} />
@@ -32,7 +37,9 @@ function HomeStackNavigator() {
                 name='CoffeeDetailScreen'
                 component={CoffeeDetailScreen}
                 options={{
-                    headerBackVisible: false
+                    gestureEnabled: true,
+                    gestureDirection: 'horizontal',
+                    //headerBackVisible: false
                 }}
             />
         </HomeStack.Navigator>
@@ -42,51 +49,51 @@ function HomeStackNavigator() {
 function SettingStackNavigator() {
     return (
         <SettingStack.Navigator
-            initialRouteName= 'SettingScreen'>
+            initialRouteName='SettingScreen'>
             <SettingStack.Screen
                 name='SettingScreen'
                 component={SettingScreen}
                 options={{
-                    //headerShown: false
+                    headerShown: false
                 }}
             />
             <SettingStack.Screen
-            name = 'AboutScreen'
-            component={AboutScreen}
-            options={{
-                headerShown: false
-            }}
+                name='AboutScreen'
+                component={AboutScreen}
+                options={{
+                    headerShown: false
+                }}
             />
         </SettingStack.Navigator>
     )
 }
 
-function RootStackNavigator(){
-    return(
+function RootStackNavigator() {
+    return (
         <RootStack.Navigator>
             <RootStack.Screen
-            name='MainApp'
-            component={TabNavigator}
-            options={{
-                headerShown: false,
-                presentation: 'card'
-            }}
+                name='MainApp'
+                component={TabNavigator}
+                options={{
+                    headerShown: false,
+                    presentation: 'card'
+                }}
             />
             <RootStack.Screen
-            name='NotificationScreen'
-            component={NotificationScreen}
-            options={{
-                headerShown: false,
-                presentation: 'card'
-            }}
+                name='NotificationScreen'
+                component={NotificationScreen}
+                options={{
+                    headerShown: false,
+                    presentation: 'card'
+                }}
             />
             <RootStack.Screen
-            name = 'AuthScreen'
-            component={AuthScreen}
-            options={{
-                headerShown: false,
-                presentation: 'modal'
-            }}
+                name='AuthScreen'
+                component={AuthScreen}
+                options={{
+                    headerShown: false,
+                    presentation: 'modal'
+                }}
             />
         </RootStack.Navigator>
     )
@@ -97,8 +104,8 @@ function TabNavigator() {
         <Tab.Navigator
             initialRouteName='Home'
             screenOptions={{
-                tabBarActiveTintColor: "rgb(46,204,113)"
-
+                tabBarActiveTintColor: "rgb(46,204,113)",
+                animation: 'shift'
             }}
         >
             <Tab.Screen
@@ -153,7 +160,7 @@ function TabNavigator() {
 export default function Navigation() {
     return (
         <NavigationContainer>
-            <RootStackNavigator/>
+            <RootStackNavigator />
         </NavigationContainer>
     )
 }
