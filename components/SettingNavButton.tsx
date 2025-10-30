@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Pressable, ActivityIndicator } from 'react-native'
 import React from 'react'
 
-
+//Exclusive for SettingScreen
 const SettingNavButton = ({
     onPress,
     title,
@@ -18,7 +18,7 @@ const SettingNavButton = ({
             onPress={onPress} 
             unstable_pressDelay={unstable_pressDelay}
             disabled={isDisabled || isLoading} 
-            hitSlop={16}
+            hitSlop={3}
             style={style} 
             accessibilityHint={accessibilityHint}
             accessibilityLabel={accessibilityLabel}
@@ -31,7 +31,7 @@ const SettingNavButton = ({
                     <View style={[
                         styles.container,
                         {
-                            backgroundColor: pressed ? "rgb(39, 174, 96)" : "rgb(46,204,113)",
+                            backgroundColor: pressed ? "rgb(240, 248, 247)" : "rgb(251, 251, 254)",
                             opacity: isDisabled ? 0.5 : 1,
                         }]}>
                         {isLoading ? (
@@ -60,14 +60,15 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         gap: 8,
         height: 42,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         paddingHorizontal: 12,
         paddingVertical: 8,
+        margin: 2,
     },
     title: {
         color: "black",
         flexShrink: 1,
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: "600",
     },
 })
