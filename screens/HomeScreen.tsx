@@ -3,6 +3,9 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../components/CustomButton';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { SafeAreaProvider ,SafeAreaView } from 'react-native-safe-area-context';
+import HomeHeader from '../components/HomeHeader';
+import PromoBanner from '../components/PromoBanner';
 
 //
 type HomeStackParamList = {
@@ -15,13 +18,18 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<HomeStackParamList, 'H
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   return (
-    <View>
-      <Text>THIS IS THE HOME SCREEN</Text>
-      <CustomButton
-        onPress={() => navigation.navigate('CoffeeDetailScreen')}
-        title='Go to CoffeeDetail Screen'
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <HomeHeader></HomeHeader>
+        <PromoBanner
+        title='Free Delivery!'
+        subtitle='For your first order'
+        description='We only apply first-time order'
+        imageUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsfjnUw9BKKspzx2WPJ1yGj-aBTE15lWGsDw&s'
+        onPress={() => console.log("wawa")}
+        ></PromoBanner>
+      </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 

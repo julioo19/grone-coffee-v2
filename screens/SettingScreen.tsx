@@ -9,6 +9,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
+import MercadoLibreHeader from '../components/SettingHeader'
 type SettingStackParamList = {
     SettingScreen: undefined
     AboutScreen: undefined
@@ -43,6 +44,7 @@ const SettingScreen = () => {
         */
         <SafeAreaProvider>
             <SafeAreaView style={styles.container}>
+                <MercadoLibreHeader></MercadoLibreHeader>
                 <ScrollView style={styles.box}>
                     <SettingNavButton
                         onPress={() => navigation.navigate('Home')}

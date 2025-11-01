@@ -20,3 +20,17 @@ interface SettingNavButtonProps {
     accessibilityLabel?: string;
     style?: ViewStyle | ViewStyle[];
 }
+
+interface SearchBarProps {
+    placeholder: string;
+    placeholderTextColor: string;
+    Icon?: React.ReactElement;
+}
+
+interface PromoBannerProps {
+    title: string;
+    subtitle: string;
+    description: string;
+    imageUrl: string;
+    onPress: () => void;
+}
